@@ -1,0 +1,58 @@
+<!doctype html>
+
+{% load staticfiles %}
+
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel='icon' href='/images/icon.png' type='image/x-icon'/ >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+  	
+ 
+  <title>Document</title>
+ </head>
+ <body>
+	<div id="main_box">
+		<div id="header">
+			<a href="/todoapp/dashboard"><img id="logo" src="{% static 'images/logo.png' %}" /></a>
+
+			<a href="/todoapp/dashboard"><span id="logo-text">ToDoApp</span></a>
+
+			<span id="ctrl1">
+			{% if request.session.login %}						
+				<a href="/accounts/logout"><img src="{% static 'images/logout.png' %}" height="16px" />&nbsp;Logout</a>	
+				<a href="/todoapp/showprofile"><img src="{% static 'images/profile.png' %}" height="16px" />&nbsp;Profile</a>	
+			{% else %}	
+				<a href="/accounts/login">Login</a>
+				<a href="/todoapp/signup">Signup</a>
+			{% endif %}
+			</span>
+			
+			<div id="welcome">
+			Welcome!! 
+			{% if request.session.login %}
+				{{request.user}}
+			{% else %}
+				Guest
+			{% endif%}		
+			</div>
+			
+		</div>
+
+		{% block menu_block %}
+		
+		{% endblock %}
+		 
+		<div id="main_content_box">
+			{% block main_block %}
+
+
+			{% endblock %}
+		</div>		
+	</div>	
+
+	<div id="footer">
+		&copy;ToDoApp Developed By Raj kurmi
+	</div>
+ </body>
+</html>

@@ -1,0 +1,18 @@
+#menu{
+	/* border-top: 1px solid red; */
+	height: 40px;
+	padding-left: 12px; 
+	padding-top: 10px;
+	background-color: #f7f7f7;
+}
+
+#menu a{
+	text-decoration: none;
+	font-size: 22px;
+	color: #777777;
+	border: 1px solid #777777;
+	margin-left: 8px;
+	padding: 4px 12px;
+	cursor: pointer;
+	border-radius: 5px; 
+}

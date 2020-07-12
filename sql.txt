@@ -1,0 +1,32 @@
+Date:18-04-2020
+
+create database projdb59;
+
+use projdb59
+
+
+
+
+insert into todoapp_city
+(city_name)
+values
+('Jabalpur'),
+('Bagluru'),
+('Pune'),
+('Bhopal'),
+('Kanpur'),
+('Jaipur'),
+('Indore'),
+('Jagdalpur'),
+('Jamshedpur'),
+('Jaisalmer');
+
+
+insert into todoapp_status
+(status) values ('Active'),('Inactive'),('Deleted');
+
+insert into todoapp_todotype
+(todotype) values ('Text Note'),('Check List');
+
+
+insert into todoapp_status (status) values ('Pending'),('Accepted'),('Rejected');

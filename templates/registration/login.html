@@ -1,0 +1,22 @@
+{% extends 'todoapp/base.html' %}
+
+{% block main_block %}
+
+	{% load staticfiles %}
+	
+	<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+
+	<form method="post">
+		<table>
+			<caption>User Login</caption>
+			{{form.as_table}}
+			<tr id="sv_btn_box">
+				<td colspan="2" id="btn_box">
+					{% csrf_token %}
+					<input type="submit" value="Login" id="btn" />
+				</td>			
+			</tr>
+		</table>
+	</form>
+
+{% endblock %}

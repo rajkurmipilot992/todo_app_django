@@ -1,0 +1,31 @@
+{% extends 'todoapp/afterlogin_base.html' %}
+
+
+{% block main_block %}
+
+	{% load staticfiles %}
+	
+	<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+
+	<script src="{% static 'js/dashboard.js' %}"></script>
+
+	<div id="main_container">
+		<table>
+			<tr>
+				<td class="rightborder">
+					<div class="dash_title">Active Records</div>
+					<div id="active_recs"></div>
+				</td>
+				<td class="rightborder">
+					<div class="dash_title">Shared ToDos</div>
+					<div id="shared_recs"></div>
+				</td>
+				<td>
+					<div class="dash_title">New Invites</div>
+					<div id="nwinv_recs"></div>
+				</td>
+			</tr>
+		</table>		
+	</div>
+
+{% endblock %}

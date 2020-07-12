@@ -1,0 +1,25 @@
+{% extends 'todoapp/base.html' %}
+
+
+{% block menu_block %}
+
+	{% load staticfiles %}
+
+	<link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+
+	<div id="menu">
+		<a href="/todoapp/dashboard">
+			<img src="{% static 'images/dashboard.png' %}" height="16px" />&nbsp;Dashboard
+		</a>
+		
+		<a href="/todoapp/showtodos">
+			<img src="{% static 'images/todo.png' %}" height="16px" />&nbsp;My ToDos
+		</a>
+		
+		<a href="/todoapp/connects">
+			<img src="{% static 'images/group.png' %}" height="16px" />&nbsp;Connects
+		</a>
+	</div>
+
+
+{% endblock %}

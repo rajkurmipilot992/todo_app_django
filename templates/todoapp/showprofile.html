@@ -1,0 +1,21 @@
+{% extends 'todoapp/base.html' %}
+
+{% block main_block %}
+
+	{% load staticfiles %}
+	
+	<link rel="stylesheet" href="{% static 'css/showprofile.css' %}" />
+    
+    <!-- <h2 style="text-align:center">User Profile</h2> -->
+
+	<div class="card">
+	  <img src={{pic}} alt="John" style="width:100%">
+	  <h1>{{name}}</h1>
+	  <p class="title">{{city}}, {{mobile}}</p>
+	  <p>{{email}}</p>
+	  <p><button class="edit"><a href="/todoapp/profile">Edit profile</a></button></p>
+	</div>
+	
+	
+	
+{% endblock %}

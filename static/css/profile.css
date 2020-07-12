@@ -1,0 +1,19 @@
+#id_mobile{
+	width: 140px;
+}
+
+#sv_btn_box{
+	visibility: hidden;
+}
+
+#otp_box{
+	display: none;
+}
+
+#otp{
+	width: 90px;
+}
+
+#loader1{
+	visibility: hidden;
+}

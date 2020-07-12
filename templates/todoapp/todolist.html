@@ -1,0 +1,130 @@
+{% extends 'todoapp/afterlogin_base.html' %}
+
+{% block main_block %}
+
+	{% load staticfiles %}
+	
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/todolist.css' %}" />
+	<script src="{% static 'js/todolist.js' %}"></script>
+
+	<table id="main_table">
+		<tr>
+			<td id="lft_cell">
+				<form method="post">
+					<table id="form_table">
+						<caption>Create New ToDo List</caption>
+						
+						<tr>
+							<td class="todo_lbl">Title:</td>
+							<td>
+								<input type="text" id="title" name="title" />
+							</td>
+						<tr>
+
+						<tr>
+							<td class="todo_lbl">ToDo Type:</td>
+							<td>								
+								<img src="{% static 'images/textnote.png'  %}" id="txnote" title="Text Note" />
+								<img src="{% static 'images/checklist.png' %}" id="chklist" title="Check List" />
+								
+								<div id="urselectiontxt">Select ToDo Type!</div>
+
+								<input type="hidden" name="urselection" id="urselection" />
+							</td>							
+						<tr>
+
+						<tr>
+							<td colspan="2" id="sbm_btn_box">
+								{% csrf_token %}
+								<input type="submit" value="Save" id="sbm_btn" />
+							</td>
+						</tr>					
+					</table>
+				</form>
+			</td>
+			<td id="rht_cell">
+				<div id="records_box">					
+					{% if todos %}
+						{% for todo in todos %}							
+							<div class="rec_cntnr">
+								<div class="rec_cntr"></div>
+
+								<div class="rec_cntnt">
+									<input type="hidden" id="_todo_id_{{forloop.counter}}" value="{{todo.id}}" />
+
+									<span class="_title" id="ttl_txt_{{forloop.counter}}">{{todo.title}}</span>
+
+									<pre class="txnote_data_" id="txnote_data_{{forloop.counter}}">{{todo.textnote}}</pre>
+
+									<input type="text" class="ttl_edit_" id="ttl_edit_{{forloop.counter}}" />
+
+									<img src="{% static 'images/loader_.gif' %}" id="_loader_{{forloop.counter}}" class="_loader_" />
+									
+									<span class="_created" id="_created_{{forloop.counter}}">{{todo.created}}</span>
+								
+									<input type="hidden" id="_todotype_id_{{forloop.counter}}" value="{{todo.todotype.id}}" />
+
+									{% ifequal todo.todotype.id 1 %}
+										<img src="{% static 'images/textnote.png' %}"  class="rec_img" />
+									{% else %}
+										<img src="{% static 'images/checklist.png' %}"  class="rec_img" />	
+									{% endifequal %}
+								
+									<!--<td>{{todo.created}}</td>-->
+									<span class="_cntrl">
+										<img src="{% static 'images/edit.png' %}" height="20px" id="_edit_{{forloop.counter}}" />
+										
+										<img src="{% static 'images/delete.png' %}" height="20px" id="_del_{{forloop.counter}}" />		
+									</span>
+								</div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<div id="norec_">No ToDo List found</div>	
+					{% endif %}
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+	<div id="_ttl_common">
+		<img src="#" id="ttl_type_" />
+		<span id="_ttl_txt"></span>
+		<input type="text" id="_ttl_txt_edit" />
+		<!-- <img src="{% static 'images/edit.png' %}" id="edit_ttl_" /> -->	
+		<span id="_ttl_created"></span>	
+		<span id="ttl_sv_">Save</span>
+		<img src="{% static 'images/delete2.png' %}" id="ttl_del_" />
+		<span id="_sv_msg">Record Saved Successfully...</span>
+		<img src="{% static 'images/share.png' %}" id="share_" title="Share">
+		<div id="rec_box"></div>
+	</div>
+	<!-- ###################Text Note#################### -->
+	<div id="textnote_main_box">		
+		<textarea rows="20" cols="40" id="txnote_edit_box"></textarea>
+	</div>
+
+	<!-- ###################Check List################# -->
+	<div id="checklist_main_box">		
+		<div id="_chk_container_">
+			<table id="checklist_box">
+				<tbody id="tbd_1"></tbody>
+				
+				<tbody id="tbd_2">
+					<tr id="tbd2_first_row">
+						<td colspan="3" align="left">All Steps Done:</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<!--
+			<table id="checklist_box_">
+				
+			</table>-->
+		</div>
+	</div>
+
+		
+{% endblock %}

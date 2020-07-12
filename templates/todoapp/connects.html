@@ -1,0 +1,44 @@
+{% extends 'todoapp/afterlogin_base.html' %}
+
+
+{% block main_block %}
+
+	{% load staticfiles %}
+	
+	<link rel="stylesheet" href="{% static 'css/connects.css' %}" />
+
+	<script src="{% static 'js/connects.js' %}"></script>
+
+	<div id="main_container">
+		<div id="sub_menu">
+			<span class="con_lnk con_act" id="all_con_">All Connects</span>
+			<!-- <a href="#" class="con_lnk">New Connects</a> -->
+			<span class="con_lnk" id="invt_">Invites</span>
+		</div>
+		<div id="connects_">
+			<div id="search_box">
+				<span id="srch">
+					Search Friend: <input type="search" id="srch_fld" />
+					<div id="search_result"></div>
+				</span>
+			</div>
+			<div id="rec_box">
+				
+			</div>
+			
+			<!--
+			<div class="records">
+				<img src="{% static 'images/user.png' %}" class="prof_pic" />
+				<span class="prof_name">Mohan Kumar</span>
+				<span class="prof_city">Jabalpur</span>
+				<span class="prof_mobile">7898579690</span>
+				<span class="prof_con_status">
+					<span class="cur_st">Not Connected</span> /
+					<span class="action">Connect</span>
+					<span class="action2">Reject</span>
+				</span>
+			</div>-->
+		</div>
+	</div>
+
+{% endblock %}
